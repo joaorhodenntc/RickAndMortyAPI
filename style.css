@@ -1,0 +1,59 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background-image: url(/fundo.jpg);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    box-shadow: 0 0 1em rgb(4, 255, 108);
+    border-radius: 10px;
+    padding: 1.5%;
+    background-color: rgb(88, 112, 89);
+}
+
+.nameAvatar{
+    color: rgb(250, 240, 240);
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.imageAvatar {
+    border-radius: 10%;
+}
+
+.inputArea{
+    margin-top: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.inputAvatar {
+    height: 1.5rem;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.buttonAvatar {
+    margin-top: 5%;
+    height: 1.7rem;
+    border: 1px solid black;
+    background-color: rgb(113, 180, 116);
+    transition: all 150ms ease-in-out;
+    border-radius: 5px;
+}
+
+.buttonAvatar:hover{
+    box-shadow: 0 0 10px 0 rgb(4, 255, 108);
+    color: rgb(250, 240, 240);
+    background-color: rgb(88, 112, 89);
+}
