@@ -1,7 +1,9 @@
 const nameAvatar = document.querySelector('.nameAvatar');
 const imgAvatar = document.querySelector('.imageAvatar')
 const inputAvatar = document.querySelector('.inputAvatar');
-const buttonAvatar = document.querySelector ('.buttonAvatar');
+const buttonNext = document.querySelector('.buttonNext');
+const formAvatar = document.querySelector('.formAvatar');
+
 
 
 const fetchApi = async (id) => {
@@ -9,23 +11,34 @@ const fetchApi = async (id) => {
     const data = await APIResponse.json();
     return data;
 }
+let idAvatar = 1;
 
 const renderApi = async (id) => {
     const data = await fetchApi(id);
-    imgAvatar.src = data.image;
-    nameAvatar.innerHTML = data.name;  
+
+    if(data){
+        imgAvatar.src = data.image;
+        nameAvatar.innerHTML = data.name; 
+        inputAvatar.value = '';
+        idAvatar = data.id;
+    }
+    
 }
 
-renderApi(1);
+renderApi(idAvatar);
 
-buttonAvatar.addEventListener('click', () => {
-    if (inputAvatar.value){
+formAvatar.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    if(inputAvatar.value && inputAvatar.value <= 826 && inputAvatar.value >= 1){
         renderApi(inputAvatar.value);
-        inputAvatar.value = "";
+        inputAvatar.placeholder = "ID";
     } else {
-        const random = Math.floor(Math.random() * 826)
-        renderApi(random);
-        
+        inputAvatar.value = "";
+        inputAvatar.placeholder = "ID Inválido!";
     }
-});
+})
 
+buttonNext.addEventListener('click',()=>{
+    idAvatar += 1;
+    renderApi(idAvatar);
+})
